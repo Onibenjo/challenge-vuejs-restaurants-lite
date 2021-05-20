@@ -10,8 +10,8 @@
           src: 'https://source.unsplash.com/random?restaurant',
         }"
       />
-      <p v-for="igd in total_ingredients" :key="igd">{{ igd }}</p>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+      <!-- <p v-for="igd in total_ingredients" :key="igd">{{ igd }}</p> -->
+      <div class="results">
         <banner
           v-for="ingredient in total_ingredients"
           :textDistribution="'bottom'"
@@ -51,3 +51,10 @@ export default {
   },
 };
 </script>
+<style>
+.results {
+  display: grid;
+  margin-top: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+</style>
