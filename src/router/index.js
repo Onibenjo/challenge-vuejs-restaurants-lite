@@ -1,33 +1,39 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import Meals from '@/views/Meals.vue';
-import Restaurants from '@/views/Restaurants.vue';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "@/views/Home.vue";
+import Meals from "@/views/Meals.vue";
+import Results from "@/views/Results.vue";
+import Restaurants from "@/views/Restaurants.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/meals',
-    name: 'Meals',
-    component: Meals
+    path: "/meals",
+    name: "Meals",
+    component: Meals,
   },
   {
-    path: '/restaurants',
-    name: 'Restaurants',
-    component: Restaurants
-  }
-]
+    path: "/restaurants",
+    name: "Restaurants",
+    component: Restaurants,
+  },
+  {
+    path: "/results",
+    name: "Results",
+    component: Results,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

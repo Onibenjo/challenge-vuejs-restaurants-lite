@@ -3,35 +3,44 @@
     <div class="store__wrapper">
       <h2 class="store__title">{{ title }}</h2>
       <span class="store__location">{{ location }}</span>
-      <img :src="photo" :alt="title" :title="title" />
+      <div>
+        Joke of the day:
+        <pre>
+          {{ joke.text }}
+        </pre>
+      </div>
+      <img :src="photo" :alt="title" :title="title" class="store__image lazy" />
     </div>
   </div>
 </template>
 <style lang="scss">
-@import './Store.scss';
+@import "./Store.scss";
 </style>
 <script>
-
 export default {
-  name: 'Store',
+  name: "Store",
   props: {
     title: {
       type: String,
-      default: null
+      default: null,
     },
     location: {
       type: String,
-      default: null
+      default: null,
     },
     photo: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
+    joke: {
+      type: Object,
+      default: () => {},
+    },
   },
   computed: {
-    isVisible () {
+    isVisible() {
       return !!this.title && !!this.location;
-    }
-  }
-}
+    },
+  },
+};
 </script>

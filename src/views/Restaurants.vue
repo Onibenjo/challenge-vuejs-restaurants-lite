@@ -8,32 +8,28 @@
 </template>
 
 <script>
-import moment from "moment";
-import StoreList from '@/components/StoreList/StoreList';
-const stores = require('@/assets/stores/stores.json');
+import currentTimeMixin from "@/mixins/currentTime";
+import StoreList from "@/components/StoreList/StoreList";
+const stores = require("@/assets/stores/stores.json");
 
 export default {
-  name: 'Stores',
+  name: "Stores",
+  mixins: [currentTimeMixin],
   components: {
-    StoreList
+    StoreList,
   },
-  data () {
+  data() {
     return {
-      currentTime: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
-      stores
-    }
+      stores,
+    };
   },
   computed: {
-    welcomeMessage () {
-      return 'Welcome to our restaurants list! Your local time is: ' + this.currentTime;
-    }
+    welcomeMessage() {
+      return (
+        "Welcome to our restaurants list! Your local time is: " +
+        this.currentTime
+      );
+    },
   },
-  mounted() {
-    const setTimer = () => setTimeout(() => {
-      this.currentTime = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-      setTimer();
-    }, 1000);
-    setTimer();
-  }
-}
+};
 </script>

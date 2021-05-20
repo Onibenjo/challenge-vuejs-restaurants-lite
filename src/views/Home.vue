@@ -5,26 +5,15 @@
 </template>
 
 <script>
-import moment from 'moment';
+import currentTimeMixin from "@/mixins/currentTime";
 
 export default {
-  name: 'Home',
-  data () {
-    return {
-      currentTime: moment().format('dddd, MMMM Do YYYY, h:mm:ss a')
-    }
-  },
+  name: "Home",
+  mixins: [currentTimeMixin],
   computed: {
-    welcomeMessage () {
-      return 'Welcome! Your local time is: ' + this.currentTime;
-    }
+    welcomeMessage() {
+      return "Welcome! Your local time is: " + this.currentTime;
+    },
   },
-  mounted() {
-    const setTimer = () => setTimeout(() => {
-      this.currentTime = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-      setTimer();
-    }, 1000);
-    setTimer();
-  }
-}
+};
 </script>
