@@ -103,7 +103,20 @@ export default {
 
       this.meals = meals;
 
-      alert(this.meals);
+      if (this.meals == 0) {
+        alert("Not enough ingredients");
+        return;
+      }
+
+      const result = {};
+      for (const ingredient in this.ingredients) {
+        result[ingredient] = this.ingredients[ingredient] * meals;
+      }
+
+      this.$router.push({
+        name: "Results",
+        query: { meals: this.meals, igd: btoa(JSON.stringify(result)) },
+      });
     },
   },
 };

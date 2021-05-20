@@ -17,7 +17,7 @@
         :title="store.name"
         :photo="store.image"
         :location="store.location"
-        :joke="joke"
+        :joke="joke ? joke.text : ''"
         v-for="store in filteredStoresWithImages"
         :key="store.id"
       />

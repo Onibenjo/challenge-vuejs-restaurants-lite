@@ -5,11 +5,17 @@
       <span class="store__location">{{ location }}</span>
       <div>
         Joke of the day:
-        <pre>
-          {{ joke.text }}
-        </pre>
+        <p>
+          <small>{{ joke }}</small>
+        </p>
       </div>
-      <img :src="photo" :alt="title" :title="title" class="store__image lazy" />
+      <img
+        :src="photo"
+        :alt="title"
+        :title="title"
+        class="store__image lazy"
+        loading="lazy"
+      />
     </div>
   </div>
 </template>
@@ -33,8 +39,8 @@ export default {
       default: null,
     },
     joke: {
-      type: Object,
-      default: () => {},
+      type: String,
+      default: "",
     },
   },
   computed: {

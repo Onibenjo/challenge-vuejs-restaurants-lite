@@ -1,7 +1,8 @@
-@import './variables/_color.scss';
-@import './variables/_spacing.scss';
+@import "./variables/_color.scss";
+@import "./variables/_spacing.scss";
 
-html, body {
+html,
+body {
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -11,10 +12,15 @@ html, body {
 }
 
 #app {
+  &.dark {
+    --color-black: #eee;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
